@@ -53,7 +53,7 @@ MathJax.Hub.Queue(function() {
 | Header | Message                                 | Description                                                                                      |
 |--------|-----------------------------------------|--------------------------------------------------------------------------------------------------|
 | 1. A->S | $A, B, N_A$                            | A requests S to supply a key for communication with B.                                          |
-| 2. S->A | $\{N_A, B, K_{AB}\}_{K_A}, \{K_{AB}, A\}_{K_B}$ | S sends a session key $K_{AB}$ encrypted for A, along with a "ticket" for B. $N_A$ confirms freshness. |
+| 2. S->A | ${\{N_A, B, K_{AB}\}}_{K_A}, \{K_{AB}, A\}_{K_B}$ | S sends a session key $K_{AB}$ encrypted for A, along with a "ticket" for B. $N_A$ confirms freshness. |
 | 3. A->B | $\{K_{AB}, A\}_{K_B}$                  | A forwards the "ticket" to B.                                                                    |
 | 4. B->A | $\{N_B\}_{K_{AB}}$                     | B decrypts the ticket, uses $K_{AB}$ to send a new nonce $N_B$ to A.                             |
 | 5. A->B | $\{N_B - 1\}_{K_{AB}}$                 | A returns $N_B - 1$, proving knowledge of $K_{AB}$ and confirming communication.                 |
